@@ -22,6 +22,19 @@ async function registerUser(req: Request, res: Response) {
   }
 }
 
+async function getAuthor(req: Request, res: Response) {
+  try {
+    const data = await prisma.biblioUrl.findFirst({
+      where: {name: req.body.name, sobrenome: req.body.sobrenome}
+    })
+
+    return res.status(200).send(data)
+  } catch (error) {
+    return res.status(400).send({ error })
+  }
+}
+
+
 async function getAll(req: Request, res: Response) {
   try {
     const data = await prisma.biblioUrl.findMany()
@@ -65,4 +78,4 @@ async function deleteUser(req: Request, res: Response) {
   }
 }
 
-export default { registerUser, getAll, deleteUser, updateUser }
+export default { registerUser, getAll, getAuthor, deleteUser, updateUser }
