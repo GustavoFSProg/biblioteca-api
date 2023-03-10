@@ -8,7 +8,7 @@ routes.get('/', function (req: Request, res: Response) {
 })
 
 routes.get('/all', urlController.getAll)
-routes.get('/get-author', urlController.getAuthor)
+routes.get('/get-author/:name', urlController.getAuthor)
 routes.post('/register', urlController.registerUser)
 routes.put('/update/:id', urlController.updateUser)
 routes.delete('/delete/:id', urlController.deleteUser)
