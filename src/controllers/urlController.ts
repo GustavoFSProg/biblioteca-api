@@ -78,4 +78,17 @@ async function deleteUser(req: Request, res: Response) {
   }
 }
 
-export default { registerUser, getAll, getAuthor, deleteUser, updateUser }
+
+
+async function deleteAllUser(req: Request, res: Response) {
+  try {
+    await prisma.biblioUrl.deleteMany()
+
+    return res.status(200).send({ msg: 'User Updated!!' })
+  } catch (error) {
+    return res.status(400).send({ error })
+  }
+}
+
+
+export default { registerUser, deleteAllUser, getAll, getAuthor, deleteUser, updateUser }

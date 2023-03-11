@@ -12,5 +12,6 @@ routes.get('/get-author/:name', urlController.getAuthor)
 routes.post('/register', urlController.registerUser)
 routes.put('/update/:id', urlController.updateUser)
 routes.delete('/delete/:id', urlController.deleteUser)
+// routes.delete('/delete-all', urlController.deleteAllUser)
 
 export default routes
